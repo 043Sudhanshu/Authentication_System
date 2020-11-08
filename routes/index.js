@@ -12,6 +12,9 @@ const passport=require('passport');
   router.post('/createSession',passport.authenticate('local', {failureRedirect:'/'} 
   ),require('../controllers/home').createSession);
   
-  router.post('/create',require('../controllers/signup').signup);
+  router.post('/create',require('../controllers/createUser').createUser);
+
+  router.use('/users',require('./users'));
+
 
   module.exports=router;

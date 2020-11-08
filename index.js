@@ -16,9 +16,10 @@ app.use(express.static('assets'));
 const passport=require('passport');
 const passportLocalStrategy=require('./config/passport-local');
 
-
 const session=require('express-session');
 const mongoStore=require('connect-mongo')(session);
+
+
 
 app.use(session({
    name:'Social',
@@ -33,11 +34,12 @@ app.use(session({
      autoRemove:'disabled'
    },function(err){console.log(err || "connected to mongostore") }))
 }));
-
-app.use(passport.initialize());
+ 
+ app.use(passport.initialize());
  app.use(passport.session());
-
  app.use(passport.setUserToLocals);
+
+ const passportOauth2startegy=require('./config/passport-google-oauth');
 
 app.use('/',require('./routes'));
 

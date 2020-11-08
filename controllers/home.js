@@ -7,6 +7,7 @@ module.exports.login=function(req,res){
 }
 
 module.exports.signup=function(req,res){
+    console.log('coming here');
     if(req.isAuthenticated()){
         return res.render('loggedin');
     }else{
