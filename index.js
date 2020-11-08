@@ -13,18 +13,35 @@ app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
+const passport=require('passport');
+const passportLocalStrategy=require('./config/passport-local');
 
-app.get('/',function(req,res){
-  return res.render('signup');
-});
-app.post('/create',function(req,res){
-    user.create(
-     req.body
-     ,function(err,USER){
-         return res.render('signin');
-        });
-       
-});
+
+const session=require('express-session');
+const mongoStore=require('connect-mongo')(session);
+
+app.use(session({
+   name:'Social',
+   secret:'CHAUHANSUDHANSHU',
+   saveUninitialized:false,
+   resave:false,
+   cookie:{
+   maxAge:(1000*60*60)
+   },
+   store:(new mongoStore({
+     mongooseConnection:db,
+     autoRemove:'disabled'
+   },function(err){console.log(err || "connected to mongostore") }))
+}));
+
+app.use(passport.initialize());
+ app.use(passport.session());
+
+ app.use(passport.setUserToLocals);
+
+app.use('/',require('./routes'));
+
+
 
 app.listen(8000,function(err){
     if(err){
