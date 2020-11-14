@@ -8,7 +8,9 @@ const passport=require('passport');
   router.get('/signup',require('../controllers/home').signup);
   router.get('/signin',require('../controllers/home').signin);
   router.get('/logout',require('../controllers/home').logout);
+  router.get('/resetpassword',require('../controllers/home').resetpassword);
   
+
   router.post('/createSession',passport.authenticate('local', {failureRedirect:'/'} 
   ),require('../controllers/home').createSession);
   

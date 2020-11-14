@@ -32,3 +32,7 @@ module.exports.createSession=function(req,res){
 
     return res.redirect('/signin');
 }
+
+module.exports.resetpassword=function(req,res){
+    return res.render('resetPassword');
+}

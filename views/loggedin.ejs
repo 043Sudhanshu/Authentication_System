@@ -1,10 +1,11 @@
 <html>
     <head>
         <title>signin</title>
+        <link rel="stylesheet" href="/css/loggedin.css">
     </head>
     <body>
     <a href='/logout'>logout</a> 
-   <h1> Hi  <%=locals.user.name%>  u r logged in  </h1>
-
+    <h1> Hi  <%=locals.user.name%>  u r logged in  </h1>
+    <a href='/resetpassword'> Reset password </a>
     </body>
 </html>
