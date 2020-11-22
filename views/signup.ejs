@@ -3,6 +3,9 @@
         <title>signup</title>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <link rel='stylesheet' href='/css/signin.css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+      
     </head>
     <body>
         <div>
@@ -27,7 +30,32 @@
      
         <br>  
     </div>
-        
+
+    
+    <script>
+       
+        <%if(flash.success.length > 0){%>
+            new Noty({
+                theme:'sunset',
+                type: 'success',
+                layout: 'topRight',
+                timeout:3000,
+                text: '<%=flash.success%>'
+            }).show();
+         <%}%>
+         <%if( flash.error.length > 0){%>
+            new Noty({
+                theme:'sunset',
+                type: 'error',
+                layout: 'topRight',
+                timeout:3000,
+                text: '<%= flash.error %>'
+            }).show();
+         <%}%>
+        </script>
+       
+
+
    <script src='/js/signup.js'></script>
 
     </body>

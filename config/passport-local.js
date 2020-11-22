@@ -4,14 +4,15 @@ const user=require('../models/user');
 
 passport.use(new localstrategy({
     usernameField:'email',
-},function(Email,password,done){
-      console.log("1");
-    user.findOne({email:Email},function(err,USER){
+    passReqToCallback:true
+},function(req,Email,password,done){
+   user.findOne({email:Email},function(err,USER){
         if(err){return done(err);}
         if(!USER || password!=USER.password){
+            req.flash('error','username/password wrong');
             return done(null,false);
         }else{
-            console.log("Authenticated user");
+            req.flash('success','you are logged in');
          return done(null,USER);
         }
     });
@@ -19,13 +20,11 @@ passport.use(new localstrategy({
 }));
 
 passport.serializeUser(function(USER,done){
-    console.log("2");
        return done(null,USER.id);                         // user.id and user._id are same
 });
 
 passport.deserializeUser(function(id,done){
-   console.log("3");
-    user.findById(id,function(err,USER){
+   user.findById(id,function(err,USER){
      if(err){
          return done(err);
      }
@@ -41,7 +40,6 @@ passport.checkAuthentication=function(req,res,next){
 }
 
 passport.setUserToLocals=function(req,res,next){
-    console.log("in set user to locals",req.isAuthenticated());
    if(req.isAuthenticated()){
     res.locals.user=req.user;
     }

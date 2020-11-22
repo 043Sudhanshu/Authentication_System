@@ -1,0 +1,16 @@
+const mongoose=require('mongoose');
+
+const tokenSchema=mongoose.Schema({
+       token:{
+           type:String
+       },
+       userid:{
+           type:String
+       },
+       isValid:{
+           type:Boolean
+       }
+});
+
+const tokens=mongoose.model('tokens',tokenSchema);
+module.exports=tokens;

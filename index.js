@@ -20,7 +20,6 @@ const session=require('express-session');
 const mongoStore=require('connect-mongo')(session);
 
 
-
 app.use(session({
    name:'Social',
    secret:'CHAUHANSUDHANSHU',
@@ -41,14 +40,23 @@ app.use(session({
 
  const passportOauth2startegy=require('./config/passport-google-oauth');
 
-app.use('/',require('./routes'));
+  const flash=require('connect-flash');
+  app.use(flash());
+  app.use(function(req,res,next){ 
+    res.locals.flash={
+     'success':req.flash('success'),
+     'error':req.flash('error')
+    }
+    next();
+   });
 
 
+  app.use('/',require('./routes'));
 
-app.listen(8000,function(err){
+   app.listen(8000,function(err){
     if(err){
         console.log(err);
         return;
     }
     console.log('server is running');
-});
+    });
