@@ -20,7 +20,7 @@ module.exports.passwordreset=function(req,res){
 }
 
 module.exports.forgotpage=function(req,res){
-    return res.render('forgotpassword');
+    return res.render('sendlink');
 }
 
 const nodemailer=require('../mailers/forgotPassword');
@@ -35,7 +35,7 @@ module.exports.sendlink=async function(req,res){
          let Token =await  TOKEN.create({
                         userid:USER._id,
                         token:hex,
-                        isvalid:true
+                        isValid:true
                     });
            
            nodemailer.forgotPassword(req.body.email,Token.token);
@@ -50,10 +50,18 @@ module.exports.sendlink=async function(req,res){
 }
 
 
+/***through gmail****/
+
 
 module.exports.newpassword=function(req,res){
-    
-    return res.render('newpassword');
+   TOKEN.findOne({token:req.query.token},function(err,Token){
 
+    return res.render('forgotByMail',{
+        isvalid:Token.isValid,
+        token:Token.token
+    });
+
+   });
+   
 }
 
