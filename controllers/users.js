@@ -25,18 +25,18 @@ module.exports.forgotpage=function(req,res){
 
 const nodemailer=require('../mailers/forgotPassword');
 const TOKEN=require('../models/token');
+const crypto=require('crypto');
 
-module.exports.forgotpassword=async function(req,res){
+module.exports.sendlink=async function(req,res){
    
     let USER=await user.findOne({email:req.body.email});
        if(USER){
-           let  crypto=   123;
+           let  hex=crypto.randomBytes(20).toString('hex');  
          let Token =await  TOKEN.create({
                         userid:USER._id,
-                        token:crypto,
+                        token:hex,
                         isvalid:true
                     });
-
            
            nodemailer.forgotPassword(req.body.email,Token.token);
            req.flash('success','link sent to this email');
@@ -53,6 +53,7 @@ module.exports.forgotpassword=async function(req,res){
 
 module.exports.newpassword=function(req,res){
     
-    console.log(req.query);
+    return res.render('newpassword');
 
 }
+

@@ -13,7 +13,7 @@ router.post('/passwordreset',users.passwordreset);
 router.get('/forgotpage',users.forgotpage);
 router.get('/newpassword',users.newpassword);
 
-router.post('/forgotpassword',users.forgotpassword);
+router.post('/sendlink',users.sendlink);
 
 
 module.exports=router;
