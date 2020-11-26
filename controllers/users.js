@@ -37,6 +37,10 @@ module.exports.sendlink=async function(req,res){
                         token:hex,
                         isValid:true
                     });
+                    setTimeout(function(){
+                        Token.remove();
+                     },20000);
+        
            
            nodemailer.forgotPassword(req.body.email,Token.token);
            req.flash('success','link sent to this email');
@@ -54,14 +58,18 @@ module.exports.sendlink=async function(req,res){
 
 
 module.exports.newpassword=function(req,res){
-   TOKEN.findOne({token:req.query.token},function(err,Token){
+  
+    TOKEN.findOne({token:req.query.token},function(err,Token){
+     if(!Token){
+        return res.end('<h1> TOKEN EXPIRED </h1>');
+     }else{
 
-    return res.render('forgotByMail',{
-        isvalid:Token.isValid,
-        token:Token.token
-    });
-
+            return res.render('forgotByMail',{
+                    isvalid:Token.isValid,
+                    token:Token.token
+            });
+        } 
    });
-   
+
 }
 
