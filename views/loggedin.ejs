@@ -1,12 +1,9 @@
-<html>
-    <head>
-        <title>signin</title>
-        <link rel="stylesheet" href="/css/loggedin.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+
+ <link rel="stylesheet" href="/css/loggedin.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
  
-    </head>
-    <body>
+    
         <div id='nav'>
             <div>
                 <a href="/logout">  logout </a>
@@ -22,32 +19,4 @@
         <p style="background-color: brown;">
            <a href='/resetpassword' target="_blank">RESET PASSWORD</a>  </p>
         
-    </div>
-     
-    </body>
-
-    
-    <script>
-       
-      <%if(flash.success.length > 0){%>
-          new Noty({
-              theme:'sunset',
-              type: 'success',
-              layout: 'topRight',
-              timeout:3000,
-              text: '<%=flash.success%>'
-          }).show();
-       <%}%>
-       <%if( flash.error.length > 0){%>
-          new Noty({
-              theme:'sunset',
-              type: 'error',
-              layout: 'topRight',
-              timeout:3000,
-              text: '<%= flash.error %>'
-          }).show();
-       <%}%>
-      </script>
-  
-
-</html>
+        </div>

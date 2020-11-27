@@ -15,6 +15,7 @@ router.get('/newpassword',users.newpassword);
 
 router.post('/sendlink',users.sendlink);
 
+router.post('/mail',users.resetThroughMail);
 
 
 module.exports=router;

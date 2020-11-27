@@ -1,13 +1,9 @@
-<html>
-    <head>
-        <title>signup</title>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <link rel='stylesheet' href='/css/signin.css'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
       
-    </head>
-    <body>
+   
         <div>
       <h1> SignUp </h1>
         
@@ -15,9 +11,9 @@
                 <form action='/create' method='POST'>
                     <input type="text" name='name' placeholder="Name" required><br><br>
                     <input type="text" name='email' placeholder="Email" required><br><br>
-                    <input type="password" name='password' placeholder="password" required><br><br>
-                    <input type="password" name='confirmpassword' placeholder="confirm-password" required><br><br>
-                    <button type='submit'>submit</button>
+                    <input type="password" name='password' placeholder="Password" required><br><br>
+                    <input type="password" name='confirmpassword' placeholder="Confirm-password" required><br><br>
+                    <button type='submit'>Submit</button>
                 </form>
         </div>
        
@@ -31,32 +27,4 @@
         <br>  
     </div>
 
-    
-    <script>
-       
-        <%if(flash.success.length > 0){%>
-            new Noty({
-                theme:'sunset',
-                type: 'success',
-                layout: 'topRight',
-                timeout:3000,
-                text: '<%=flash.success%>'
-            }).show();
-         <%}%>
-         <%if( flash.error.length > 0){%>
-            new Noty({
-                theme:'sunset',
-                type: 'error',
-                layout: 'topRight',
-                timeout:3000,
-                text: '<%= flash.error %>'
-            }).show();
-         <%}%>
-        </script>
-       
-
-
-   <script src='/js/signup.js'></script>
-
-    </body>
-</html>
+  

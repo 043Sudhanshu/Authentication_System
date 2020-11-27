@@ -6,9 +6,6 @@ const tokenSchema=mongoose.Schema({
        },
        userid:{
            type:String
-       },
-       isValid:{
-           type:Boolean
        }
 });
 

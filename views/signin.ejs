@@ -1,13 +1,6 @@
-<html>
-<head>
-    <title>signin</title>  
-</head> 
+
 <link rel='stylesheet' href='/css/signin.css'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
- 
-<body>
+
 
     <div>
                 <h1> SignIn </h1>
@@ -15,7 +8,7 @@
                         <form action='/createSession' method='POST'>
                             <input type="text" name='email' placeholder="Email" required><br><br>
                             <input type="password" name='password' placeholder="password" required><br><br>
-                            <button type='submit'>submit</button>
+                            <button type='submit'>Submit</button>
                         </form>
                     </div>
                     <div style="background-color: #42434a;">
@@ -35,30 +28,3 @@
   </div>
 
   
-  <script>
-       
-    <%if(flash.success.length > 0){%>
-        new Noty({
-            theme:'sunset',
-            type: 'success',
-            layout: 'topRight',
-            timeout:3000,
-            text: '<%=flash.success%>'
-        }).show();
-     <%}%>
-     <%if( flash.error.length > 0){%>
-        new Noty({
-            theme:'sunset',
-            type: 'error',
-            layout: 'topRight',
-            timeout:3000,
-            text: '<%= flash.error %>'
-        }).show();
-     <%}%>
-    </script>
-   
-
-
-    </body>
-
-</html>
