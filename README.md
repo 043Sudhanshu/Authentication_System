@@ -3,16 +3,16 @@ Starter code of any website having authentication System ,I have used passport l
 # How-To-Use
 Clone this project
 Start by installing npm and mongoDB if you don't have them already.
-Run the Mongo Server.
-Create a google login credentials and subsequently a google Oauth ID. Refer this : https://developers.google.com/identity/protocols/oauth2 .Don't share these crednetials with anyone.
+Run the Mongo Server.\
+Create a google login credentials and subsequently a google Oauth ID. Refer this : https://developers.google.com/identity/protocols/oauth2 .Don't share these crednetials with anyone.\
 Create a dummy email id which can be used by mailer. (You have to make your dummy account less secure by going into mail settings). Try to avoid your personal mail id.
-Navigate to Project Directory:
-run following commands :
-npm install 
-node index.js
-Basic-Features
+Navigate to Project Directory:\
+run following commands :\
+npm install \
+node index.js\
+Basic-Features\
 Basic Sign up and Sign in functionality with proper authentication on backend (Manual and Google OAuth both).
-Mailer for forgot password.
+Mailer for forgot password.<br\>
 Mailer for security ie, if a user changes password a mail is sent with access token which can be used by them to restore account if compromised.
 Proper Notifications using noty.
 Reset password if authenticated manually.
