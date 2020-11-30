@@ -9,13 +9,13 @@ Create a dummy email id which can be used by mailer. (You have to make your dumm
 Navigate to Project Directory:\
 run following commands :\
 npm install \
-node index.js\
-# Basic-Features\
+node index.js
+# Basic-Features
 Basic Sign up and Sign in functionality with proper authentication on backend (Manual and Google OAuth both).\
 Mailer for forgot password.\
 Mailer for security ie, if a user changes password a mail is sent with access token which can be used by them to restore account if compromised.\
 Proper Notifications using noty.\
-Reset password if authenticated manually.\
+Reset password if authenticated manually.
 # Directory Structure and flow of The Code
 This code follows MVC pattern and hence everything is differentiated and well managed:
 
