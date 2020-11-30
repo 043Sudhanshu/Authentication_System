@@ -25,7 +25,7 @@ This code follows MVC pattern and hence everything is differentiated and well ma
 
 /controller - contains functions to connect to different views.
 
-/model - to store data in db we need models.
+/models - to store data in db we need models.
 
 /config - contains config files for mongoos, passport, node mailer or any other configs.
 
